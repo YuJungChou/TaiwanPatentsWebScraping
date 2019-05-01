@@ -45,13 +45,12 @@ driver.implicitly_wait(20)
 driver.get(url)
 time.sleep(20)
 ```
-Firefox is powered. The result is like below image.
-1**IMG HERE**1  
+We can confirm that Firefox is powered. 
 
 
 ### Interact With Elements
 Next, we want to go to the search page of the website. The way human do is clicking the buttom. That means we need to let robots know the position (element) where button is. The methods can be check in [Locating Elements](https://selenium-python.readthedocs.io/locating-elements.html#locating-elements). In this tutorial, We use XPATH to confirm the element. The simplest way to get the xpath is like the image below:
-1**IMG HERE**1  
+![alt tag](https://i.imgur.com/biLrJB0.png)
 Got the xpath, we setup a Element Object by **.find_element_by_xpath** (be careful of element or elements, the latter return in type(list)), and click() it. 
 ```python
 topmenu_xpath = '/html/body/form/table/tbody/tr[1]/td/table/tbody/tr[2]/td/table/tbody/tr/td/div/ul/li[4]/a'
@@ -59,8 +58,7 @@ element = driver.find_element_by_xpath(topmenu_xpath)
 element.click()
 time.sleep(20) # in second
 ```
-The **time.sleep()** function is necessary to avoid from sending requests to server too frequently. The result page is as below.
-1**IMG HERE**1  
+The **time.sleep()** function is necessary to avoid from sending requests to server too frequently. 
 
 
 ### Input Search Keyword
@@ -71,7 +69,7 @@ element_keyword = driver.find_element_by_xpath("//input[@type='text' and @name='
 element_keyword.send_keys(KEYWORD)
 ```
 Now we can see the keyword is on the text-input.
-1**IMG HERE**1  
+![alt tag](https://i.imgur.com/pe9CGXv.png)
 Alright, let's search it.
 ```python
 element_search_xpath = '/html/body/form/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr[4]/td/table[2]/tbody/tr[1]/td[3]/input[1]'
@@ -83,7 +81,7 @@ time.sleep(20)
 
 ### Get the Result Data
 The page of search result is like this.
-1**IMG HERE**1  
+![alt tag](https://i.imgur.com/Q3YrxfZ.png)
 Now there have some infomation we might need: the patent number, publication date, title name and pdf download link. If we inspect the web source code, then we will find that the xpath of items (10 in 1 page by default) in table-list is similar to each other. Therefore let's use **.find_elements** method, which return list type.  
 ```python
 element_patent_num_xpath = "//td[@class='sumtd2_PN']/a[@class='link02']"
@@ -111,11 +109,12 @@ for (num, pubdate, name, pdf) in item_list:
     pdf.click()
     time.sleep(20)
 ```
-The PDF files wiil be downloaded into /download/ folder as we set.
+The PDF files wiil be downloaded into **/download/** folder as we set.
 
 
 
 ### Change To Page
+We are not satisfied with geting only one page. Let's check how many pages there first, and then input the page we want. In real work, that might be a for loop to iterate all pages and obtain the data.
 ```python
 # Get Totle Pages Number
 element_totolpages_xpath = "/html/body/form/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[1]/font/font[2]"
