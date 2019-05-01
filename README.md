@@ -99,11 +99,11 @@ print(len(element_patent_num),
       len(element_patent_name),
       len(element_patent_pdf)) # return 10, 10, 10, 10
 ```
-the find_elements return 10 item, which match the item counts in a page.
+The find_elements return 10 item, which match the item counts in a page.
 
 
 
-# DOWNLOAD PDF
+### DOWNLOAD PDF
 Start to download the information, row by row.
 ```python
 item_list = zip(element_patent_num,element_patent_pubdate,element_patent_name,element_patent_pdf)
@@ -115,7 +115,7 @@ The PDF files wiil be downloaded into /download/ folder as we set.
 
 
 
-# CHANGE TO PAGE
+### CHANGE TO PAGE
 ```python
 element_totolpages_xpath = "/html/body/form/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[1]/font/font[2]"
 element_totolpages = driver.find_element_by_xpath(element_totolpages_xpath) #ex:"1/26637"
