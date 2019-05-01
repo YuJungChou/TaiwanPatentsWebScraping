@@ -50,7 +50,7 @@ We can confirm that Firefox is powered.
 
 ### Interact With Elements
 Next, we want to go to the search page of the website. The way human do is clicking the buttom. That means we need to let robots know the position (element) where button is. The methods can be check in [Locating Elements](https://selenium-python.readthedocs.io/locating-elements.html#locating-elements). In this tutorial, We use XPATH to confirm the element. The simplest way to get the xpath is like the image below:
-![alt tag](https://i.imgur.com/biLrJB0.png)
+![alt tag](https://i.imgur.com/aK6X9DO.jpg)
 Got the xpath, we setup a Element Object by **.find_element_by_xpath** (be careful of element or elements, the latter return in type(list)), and click() it. 
 ```python
 topmenu_xpath = '/html/body/form/table/tbody/tr[1]/td/table/tbody/tr[2]/td/table/tbody/tr/td/div/ul/li[4]/a'
@@ -69,7 +69,7 @@ element_keyword = driver.find_element_by_xpath("//input[@type='text' and @name='
 element_keyword.send_keys(KEYWORD)
 ```
 Now we can see the keyword is on the text-input.
-![alt tag](https://i.imgur.com/pe9CGXv.png)
+![alt tag](https://i.imgur.com/Fqjrx90.jpg)
 Alright, let's search it.
 ```python
 element_search_xpath = '/html/body/form/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr[4]/td/table[2]/tbody/tr[1]/td[3]/input[1]'
@@ -81,7 +81,7 @@ time.sleep(20)
 
 ### Get the Result Data
 The page of search result is like this.
-![alt tag](https://i.imgur.com/Q3YrxfZ.png)
+![alt tag](https://i.imgur.com/2gm1jZw.jpg)
 Now there have some infomation we might need: the patent number, publication date, title name and pdf download link. If we inspect the web source code, then we will find that the xpath of items (10 in 1 page by default) in table-list is similar to each other. Therefore let's use **.find_elements** method, which return list type.  
 ```python
 element_patent_num_xpath = "//td[@class='sumtd2_PN']/a[@class='link02']"
