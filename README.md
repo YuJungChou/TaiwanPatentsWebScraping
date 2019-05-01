@@ -103,7 +103,7 @@ The find_elements return 10 item, which match the item counts in a page.
 
 
 
-### DOWNLOAD PDF
+### Download PDF files
 Start to download the information, row by row.
 ```python
 item_list = zip(element_patent_num,element_patent_pubdate,element_patent_name,element_patent_pdf)
@@ -115,18 +115,21 @@ The PDF files wiil be downloaded into /download/ folder as we set.
 
 
 
-### CHANGE TO PAGE
+### Change To Page
 ```python
+# Get Totle Pages Number
 element_totolpages_xpath = "/html/body/form/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[1]/font/font[2]"
 element_totolpages = driver.find_element_by_xpath(element_totolpages_xpath) #ex:"1/26637"
 total_pages = int( element_totolpages.text.split('/')[-1] ) #ex:26637, type:int
 
+# Input Page Number
 element_inputpage_xpath = "//nobr/input[@class='jpage' and @type='text']"
 element_inputpage = driver.find_element_by_xpath(element_inputpage_xpath)
 element_inputpage.send_keys(Keys.CONTROL + "a")
 element_inputpage.send_keys(Keys.DELETE)
 element_inputpage.send_keys('1055')
 
+# Button Click
 element_pagebutton_xpath = "//td[@valign='bottom']/input[@src='/tipotwo/img/redisplay_1.gif']"
 element_pagebutton = driver.find_element_by_xpath(element_pagebutton_xpath)
 element_pagebutton.click()
