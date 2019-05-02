@@ -114,7 +114,7 @@ The PDF files wiil be downloaded into **/download/** folder as we set.
 
 
 ### Change To Page
-We are not satisfied with geting only one page. Let's check how many pages there first, and then input the page we want. In real work, that might be a for loop to iterate all pages and obtain the data.
+We are not satisfied with geting data of only one page. Let's check how many pages there first, and then input the page we want. In real work, that might be a for loop to iterate all pages and obtain the data.
 ```python
 # Get Totle Pages Number
 element_totolpages_xpath = "/html/body/form/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr/td[1]/font/font[2]"
